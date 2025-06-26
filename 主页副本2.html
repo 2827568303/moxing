@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>昆明学院农业模型学实训汇报</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E5128', // 昆明学院主色调-绿色
+                        secondary: '#4E9F3D', // 辅助绿色
+                        accent: '#D8E9A8', // 点缀色
+                        dark: '#191A19', // 深色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .hover-scale {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <header class="bg-primary text-white shadow-lg fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-leaf text-accent text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold">昆明学院农业模型学实训汇报</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-accent transition-colors duration-300">首页</a>
+                <a href="#live" class="hover:text-accent transition-colors duration-300">视频</a>
+                <a href="#about" class="hover:text-accent transition-colors duration-300">关于实训</a>
+                <a href="#groups" class="hover:text-accent transition-colors duration-300">实训组别</a>
+            </nav>
+            <button class="md:hidden text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-primary/95 backdrop-blur-md" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#" class="py-2 border-b border-gray-700 hover:text-accent transition-colors duration-300">首页</a>
+                <a href="#live" class="py-2 hover:text-accent transition-colors duration-300">视频</a>
+                <a href="#about" class="py-2 hover:text-accent transition-colors duration-300">关于实训</a>
+                <a href="#groups" class="py-2 border-b border-gray-700 hover:text-accent transition-colors duration-300">实训组别</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- 可替换背景图 -->
+            <img src="https://picsum.photos/id/1025/1920/1080" alt="农业实训背景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/50"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h2 class="text-[clamp(2rem,5vw,4rem)] font-bold text-white mb-6 text-shadow">
+                昆明学院农业模型学实训汇报
+            </h2>
+            <p class="text-[clamp(1rem,2vw,1.5rem)] text-white/90 mb-10 max-w-3xl mx-auto">
+                展示农业模型学实训成果，探索现代农业科技发展
+            </p>
+            <a href="#groups" class="inline-block bg-secondary hover:bg-secondary/80 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                探索实训成果 <i class="fa fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#groups" class="text-white text-4xl opacity-80 hover:opacity-100 transition-opacity duration-300">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="live" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+    <body>
+        <div class="container mx-auto text-center"> <!-- 新增 text-center 类使内容居中 -->
+            <div class="header">
+                <h1>🎬 视频展示中心</h1>
+                <p>享受高质量的视频内容，体验流畅的播放效果</p>
+            </div>
+    
+            <div class="video-section">
+                <div class="video-container mx-auto max-w-3xl"> <!-- 新增 mx-auto 使视频容器居中，max-w-3xl 限制最大宽度 -->
+                    <video class="video-player w-full" controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23f0f0f0'/%3E%3Ctext x='400' y='225' text-anchor='middle' font-family='Arial' font-size='24' fill='%23999'%3E视频加载中...%3C/text%3E%3C/svg%3E">
+                        <source src="视频.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+    
+                <div class="controls mt-4"> <!-- 新增 mt-4 增加顶部间距 -->
+                    <button class="btn btn-primary" onclick="playVideo()">▶️ 播放</button>
+                    <button class="btn btn-secondary" onclick="pauseVideo()">⏸️ 暂停</button>
+                    <button class="btn btn-secondary" onclick="restartVideo()">🔄 重新播放</button>
+                    <button class="btn btn-secondary" onclick="toggleFullscreen()">⛶ 全屏</button>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const video = document.querySelector('.video-player');
+            
+            function playVideo() {
+                video.play();
+            }
+            
+            function pauseVideo() {
+                video.pause();
+            }
+            
+            function restartVideo() {
+                video.currentTime = 0;
+                video.play();
+            }
+            
+            function toggleFullscreen() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            }
+            
+            
+            // 视频加载事件
+            video.addEventListener('loadstart', function() {
+                console.log('视频开始加载...');
+            });
+            
+            video.addEventListener('canplay', function() {
+                console.log('视频可以播放');
+            });
+            
+            video.addEventListener('error', function() {
+                console.error('视频加载失败');
+                alert('视频加载失败，请检查文件路径是否正确');
+            });
+            
+            // 键盘快捷键支持
+            document.addEventListener('keydown', function(e) {
+                switch(e.code) {
+                    case 'Space':
+                        e.preventDefault();
+                        if (video.paused) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        video.currentTime -= 10;
+                        break;
+                    case 'ArrowRight':
+                        video.currentTime += 10;
+                        break;
+                }
+            });
+            
+            // 页面加载完成后的初始化
+            window.addEventListener('load', function() {
+                console.log('视频展示页面加载完成');
+            });
+        </script>
+    </body>
+    
+    <!-- 关于实训 -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">关于实训</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">本次农业模型学实训是昆明学院农学与生物技术学院组织的一次重要实践教学活动。</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-2xl font-bold text-dark mb-6">实训目标</h3>
+                    <p class="text-gray-600 mb-6">
+                        本次实训旨在让学生掌握农业模型学的基本理论和方法，培养学生运用计算机技术解决农业生产实际问题的能力。通过实际项目操作，提高学生的实践能力和团队协作精神，为今后从事农业科技工作打下坚实的基础。
+                    </p>
+                    <h3 class="text-2xl font-bold text-dark mb-6">实训内容</h3>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>农业模型基本原理与方法</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>作物生长模型的构建与应用</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>农业环境模拟与预测</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>农业数据采集与分析</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                            <span>农业模型软件开发与应用</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <!-- 可替换图片 -->
+                    <img src="https://picsum.photos/id/1040/800/600" alt="农业实训场景" class="rounded-xl shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- 实训组别区域 -->
+    <section id="groups" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">实训组别</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">本次农业模型学实训分为三个专业小组，每个小组专注于不同的研究方向，共同探索农业模型学的应用与发展。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 代码组卡片 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover-scale group">
+                    <div class="h-60 overflow-hidden">
+                        <!-- 可替换图片 -->
+                        <img src="https://picsum.photos/id/180/800/600" alt="代码组工作场景" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3 flex items-center">
+                            <i class="fa fa-code text-primary mr-2"></i> 研发B组
+                        </h3>
+                        <p class="text-gray-600 mb-6">负责农业模型的数据处理、算法设计和程序实现，开发适合农业应用的模型系统。</p>
+                        <a href="研发B.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 研发组卡片 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover-scale group">
+                    <div class="h-60 overflow-hidden">
+                        <!-- 可替换图片 -->
+                        <img src="https://picsum.photos/id/26/800/600" alt="研发组工作场景" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3 flex items-center">
+                            <i class="fa fa-flask text-primary mr-2"></i> 研发A组
+                        </h3>
+                        <p class="text-gray-600 mb-6">专注于农业模型的理论研究与创新，探索新的模型架构和应用方法，提升模型的准确性和实用性。</p>
+                        <a href="研发A.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 发布组卡片 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden hover-scale group">
+                    <div class="h-60 overflow-hidden">
+                        <!-- 可替换图片 -->
+                        <img src="https://picsum.photos/id/1059/800/600" alt="发布组工作场景" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark mb-3 flex items-center">
+                            <i class="fa fa-bullhorn text-primary mr-2"></i> 发布A组
+                        </h3>
+                        <p class="text-gray-600 mb-6">负责实训成果的展示、推广和应用，通过多种媒介形式向外界展示我们的农业模型学实训成果。</p>
+                        <a href="发布A.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300">
+                            查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-leaf text-accent mr-2"></i> 昆明学院农业模型学实训汇报
+                    </h3>
+                    <p class="text-gray-400 mb-6">
+                        展示农业模型学实训成果，探索现代农业科技发展
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">首页</a></li>
+                        <li><a href="#groups" class="text-gray-400 hover:text-white transition-colors duration-300">实训组别</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">关于实训</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker text-accent mr-2"></i>
+                            <span class="text-gray-400">云南省昆明市昆明学院</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-accent mr-2"></i>
+                            <span class="text-gray-400">contact@kmnc.edu.cn</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-accent mr-2"></i>
+                            <span class="text-gray-400">0871-12345678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 昆明学院农业模型学实训汇报. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary/80 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 translate-y-10">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('py-2', 'bg-primary/95', 'backdrop-blur-md');
+                navbar.classList.remove('py-3', 'bg-primary');
+                backToTop.classList.remove('opacity-0', 'translate-y-10');
+                backToTop.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                navbar.classList.remove('py-2', 'bg-primary/95', 'backdrop-blur-md');
+                navbar.classList.add('py-3', 'bg-primary');
+                backToTop.classList.add('opacity-0', 'translate-y-10');
+                backToTop.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+        
+        // 回到顶部功能
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.innerHTML = mobileMenu.classList.contains('hidden') ? 
+                '<i class="fa fa-bars"></i>' : 
+                '<i class="fa fa-times"></i>';
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+                    }
+                    
+                    // 滚动到目标位置
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
